@@ -17,9 +17,9 @@ if ($result['rest_only'] === false) : ?>
 
 	<body>
 		<?php if ($result['install'] == true) : ?>
-			installation has been finished
+			Se instaló el aplicativo correctamente.
 		<?php else : ?>
-			installation error
+			Error cuando se instaló el aplicativo.
 		<?php endif; ?>
 	</body>
 <?php endif;
