@@ -17,9 +17,9 @@ if ($result['rest_only'] === false) : ?>
 
 	<body>
 		<?php if ($result['install'] == true) : ?>
-			Se instaló el aplicativo correctamente.
+			La instalación de <strong>AsesoresT24</strong> se realizó correctamente :D
 		<?php else : ?>
-			Error cuando se instaló el aplicativo.
+			No se realizó la instalación de AsesoresT24. Contactar a nuestro equipo de soporte (soporte@asesores-e.com).
 		<?php endif; ?>
 	</body>
 <?php endif;
