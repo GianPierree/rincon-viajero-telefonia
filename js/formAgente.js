@@ -19,7 +19,7 @@ $("#formAgente").submit(function (e) {
 });
 
 var statusLead = {
-    url: "https://alige.bitrix24.es/rest/6/cuphan5bz4983ln3/crm.status.entity.items.json?entityId=STATUS",
+    url: "https://rinconviajero.bitrix24.es/rest/33/and34fxv1a6k3zdh/crm.status.entity.items.json?entityId=STATUS",
     method: "GET",
     timeout: 0,
     headers: {
@@ -38,7 +38,7 @@ $.ajax(statusLead).done(function (response) {
 });
 
 var source = {
-    url: "https://alige.bitrix24.es/rest/6/cuphan5bz4983ln3/crm.status.entity.items.json?entityId=SOURCE",
+    url: "https://rinconviajero.bitrix24.es/rest/33/and34fxv1a6k3zdh/crm.status.entity.items.json?entityId=SOURCE",
     method: "GET",
     timeout: 0,
     headers: {

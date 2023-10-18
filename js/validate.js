@@ -107,7 +107,7 @@ async function crearCampanas() {
                 let start = 0;
 
                 var campana = {
-                    url: "https://alige.bitrix24.es/rest/6/cuphan5bz4983ln3/crm." + entidadCampana + ".list.json?filter[HAS_PHONE]=Y&filter[SOURCE_ID]=" + origenCampana + "&filter[STATUS_ID]=" + estadoCampana + "&start=" + start,
+                    url: "https://rinconviajero.bitrix24.es/rest/33/and34fxv1a6k3zdh/crm." + entidadCampana + ".list.json?filter[HAS_PHONE]=Y&filter[SOURCE_ID]=" + origenCampana + "&filter[STATUS_ID]=" + estadoCampana + "&start=" + start,
                     method: "GET",
                     timeout: 0,
                     headers: {
@@ -122,7 +122,7 @@ async function crearCampanas() {
 
                     for (let i = 0; i < Math.ceil(total / 50); i++) {
                         var campanaI = {
-                            url: "https://alige.bitrix24.es/rest/6/cuphan5bz4983ln3/crm." + entidadCampana + ".list.json?filter[HAS_PHONE]=Y&filter[SOURCE_ID]=" + origenCampana + "&filter[STATUS_ID]=" + estadoCampana + "&start=" + start,
+                            url: "https://rinconviajero.bitrix24.es/rest/33/and34fxv1a6k3zdh/crm." + entidadCampana + ".list.json?filter[HAS_PHONE]=Y&filter[SOURCE_ID]=" + origenCampana + "&filter[STATUS_ID]=" + estadoCampana + "&start=" + start,
                             method: "GET",
                             timeout: 0,
                             headers: {

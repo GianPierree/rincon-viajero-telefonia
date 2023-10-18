@@ -1,9 +1,9 @@
 <?php
 // echo "Hola";
-$hostname = "alige.t24service.com";
+$hostname = "rinconviajero.t24service.com";
 $database = "adialer";
-$username = "alige";
-$password = "xmPs5FK6DtgWWtwP";
+$username = "t24dialer";
+$password = "T24Service@2023";
 
 $conn = new mysqli($hostname, $username, $password, $database);
 
