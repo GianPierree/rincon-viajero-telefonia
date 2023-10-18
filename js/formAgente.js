@@ -34,7 +34,7 @@ $.ajax(statusLead).done(function (response) {
     for (var key in obj) {
         htmlEstadoLead += "<option value=" + obj[key]["STATUS_ID"] + ">" + obj[key]["NAME"] + "</option>";
     }
-    document.getElementById("campanaEstadoLead").innerHTML = htmlEstadoLead;
+    document.getElementById("campanaEstado").innerHTML = htmlEstadoLead;
 });
 
 var source = {
