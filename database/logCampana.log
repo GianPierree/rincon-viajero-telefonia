@@ -1,0 +1,162 @@
+
+------------------------
+2023.10.31 2:52:08
+Log de las campañas.
+Array
+(
+    [arrCampana] => Array
+        (
+            [id] => 2004
+            [nombre] => test
+            [idCola] => 9000
+            [entidad] => lead
+            [estado] => NEW
+            [origen] => CALL
+            [tipo] => 4
+            [intentos] => 5
+            [intervalo] => 5
+            [agentes] => 5
+            [numero] => 123456
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 2:52:08
+Log SQL
+INSERT INTO campaigns (id, campaignName, callerId, type, maxHints, waitTime, agents, cpa, stats, customerId, queueId) VALUES (2004, 'test', 123456, 4, 5, 5, 5, 7, 0, 1, 9000) ON DUPLICATE KEY UPDATE id=2004, stats=0
+------------------------
+
+------------------------
+2023.10.31 2:57:48
+Log del leads-trash
+Array
+(
+    [arr] => Array
+        (
+            [id] => 2004
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 2:59:10
+Log de las campañas.
+Array
+(
+    [arrCampana] => Array
+        (
+            [id] => 2005
+            [nombre] => TEST 2
+            [idCola] => 9000
+            [entidad] => lead
+            [estado] => NEW
+            [origen] => CALL
+            [tipo] => 4
+            [intentos] => 5
+            [intervalo] => 5
+            [agentes] => 5
+            [numero] => 12345
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 2:59:10
+Log SQL
+INSERT INTO campaigns (id, campaignName, callerId, type, maxHints, waitTime, agents, cpa, stats, customerId, queueId) VALUES (2005, 'TEST 2', 12345, 4, 5, 5, 5, 7, 0, 1, 9000) ON DUPLICATE KEY UPDATE id=2005, stats=0
+------------------------
+
+------------------------
+2023.10.31 2:59:11
+Log del leads
+Array
+(
+    [arrLeads] => Array
+        (
+            [id] => 1605
+            [nombre] => ANRANGO
+            [telefono] => 593939843357
+            [idCampana] => 2005
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 2:59:11
+Log SQL
+INSERT INTO leads (leadId, dst, campaignId) VALUES (1605, 593939843357, 2005) ON DUPLICATE KEY UPDATE lastStatus=0, hints=0
+------------------------
+
+------------------------
+2023.10.31 2:59:11
+Log del leads
+Array
+(
+    [arrLeads] => Array
+        (
+            [id] => 1601
+            [nombre] => ALVARADO
+            [telefono] => 593988390235
+            [idCampana] => 2005
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 2:59:11
+Log SQL
+INSERT INTO leads (leadId, dst, campaignId) VALUES (1601, 593988390235, 2005) ON DUPLICATE KEY UPDATE lastStatus=0, hints=0
+------------------------
+
+------------------------
+2023.10.31 3:02:06
+Log del campaigns
+Array
+(
+    [arr] => Array
+        (
+            [id] => 2005
+            [num] => 1
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 3:02:06
+Log SQL
+UPDATE campaigns SET stats = 1 WHERE id = 2005
+------------------------
+
+------------------------
+2023.10.31 3:24:02
+Log del campaigns
+Array
+(
+    [arr] => Array
+        (
+            [id] => 2005
+            [num] => 0
+        )
+
+)
+
+------------------------
+
+------------------------
+2023.10.31 3:24:02
+Log SQL
+UPDATE campaigns SET stats = 0, running = 0 WHERE id = 2005
+------------------------
