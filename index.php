@@ -235,7 +235,7 @@
 				},
 				success: function(res) {
 					console.log("status: ", res);
-					return "Activo";
+					// return "Activo";
 				}
 			});
 		}
