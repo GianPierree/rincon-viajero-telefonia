@@ -13,10 +13,11 @@ if ($conn->connect_error) {
 } else {
 
     $sql = "SELECT c.stats FROM campaigns c WHERE id = $id";
-    $log->logRequest($sql, "Log SQL");
+    $log->logRequest($query, "Log SQL");
+    $query = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-       echo json_encode(array('success' => "Actualización a la tabla campaigns realizada."));
+    if ($query->num_rows >= 0) {
+       echo json_encode(array('success' => "Estados de campanas."));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
