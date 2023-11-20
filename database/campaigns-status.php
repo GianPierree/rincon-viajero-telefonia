@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     echo json_encode(array('success' => "Error de conexión: " . $conn->connect_error));
 } else {
 
-    $sql = "SELECT c.stats FROM campaigns c WHERE id = $id;";
+    $sql = "SELECT c.stats FROM campaigns c WHERE id = $id";
     $log->logRequest($sql, "Log SQL");
 
     if ($conn->query($sql) === TRUE) {
