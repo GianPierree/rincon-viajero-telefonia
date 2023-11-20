@@ -219,6 +219,26 @@
 				}
 			});
 		}
+
+		function campanaStatus(id) {
+			console.log("id: " + id );
+
+			let arr = {};
+			arr["id"] = id;
+
+			$.ajax({
+				type: "POST",
+				url: "./database/campaigns-status.php",
+				cache: false,
+				data: {
+					arr
+				},
+				success: function(res) {
+					console.log("status: ", res);
+					return "Activo";
+				}
+			});
+		}
 	</script>
 </head>
 
