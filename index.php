@@ -258,7 +258,7 @@
 						<tr>
 							<th scope="col">Id</th>
 							<th scope="col">Nombre de campaña</th>
-							<!-- <th scope="col">Cola de atención</th> -->
+							<th scope="col">Estado</th>
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
