@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     $query = $conn->query($sql);
 
     if ($query->num_rows >= 0) {
-       echo json_encode(array('success' => "Estados de campanas."));
+       echo json_encode(array('success' => "Estados de campanas.", 'data' => $query));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
