@@ -429,6 +429,12 @@
 	<script src="./js/t24.js"></script>
 	<script src="./js/formAgente.js"></script>
 	<script src="./js/formCampana.js"></script>
+	<script>
+		$(document).ready(function() {
+			console.log('test');
+			consultarUsuario();
+		});
+	</script>
 	<!-- <script src="./js/list.js"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
