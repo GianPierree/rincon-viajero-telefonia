@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo json_encode(array('success' => "Estados de campanas.", 'stats' => $row['stats']));
+        echo $row['stats'];
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }

@@ -234,8 +234,7 @@
 					arr
 				},
 				success: function(res) {
-					console.log("status: ", res);
-					console.log("stats: ", res.stats);
+					console.log("stats: ", res);
 					// return "Activo";
 				}
 			});
