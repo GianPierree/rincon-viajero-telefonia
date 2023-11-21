@@ -29,9 +29,10 @@
 				data: {
 					arr
 				},
-				success: function(res) {
+				success: async function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
+					await campanaStatus(id);
 				}
 			});
 		}
@@ -50,9 +51,11 @@
 				data: {
 					arr
 				},
-				success: function(res) {
+				success: async function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
+					await campanaStatus(id);
+
 				}
 			});
 		}
@@ -71,9 +74,10 @@
 				data: {
 					arr
 				},
-				success: function(res) {
+				success: async function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
+					await campanaStatus(id);
 				}
 			});
 		}
