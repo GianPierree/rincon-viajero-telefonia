@@ -235,6 +235,7 @@
 				},
 				success: function(res) {
 					console.log("status: ", res);
+					console.log("stats: ", res.stats);
 					// return "Activo";
 				}
 			});
