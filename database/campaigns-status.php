@@ -17,12 +17,12 @@ if ($conn->connect_error) {
     $query = $conn->query($sql);
     $id = '';
 
-    while ($query = $result->fetch_object()) {
+    while ($obj = $query->fetch_object()) {
         $id = $obj->id;
     }
 
     if ($query->num_rows >= 0) {
-        echo json_encode(array('success' => "Estados de campanas.", 'data' => $id));
+        echo json_encode(array('success' => "Estados de campanas.", 'data' => $id, 'obj' => $query->fetch_object()));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
