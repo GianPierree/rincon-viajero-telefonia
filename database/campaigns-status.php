@@ -12,17 +12,12 @@ if ($conn->connect_error) {
     echo json_encode(array('success' => "Error de conexión: " . $conn->connect_error));
 } else {
 
-    $sql = "SELECT c.stats FROM campaigns c WHERE id = $id";
-    $log->logRequest($query, "Log SQL");
-    $query = $conn->query($sql);
-    $id = '';
+    $sql = "SELECT stats FROM campaigns WHERE id = $id";
+    $result = $conn->query($sql);
 
-    while ($obj = $query->fetch_object()) {
-        $id = $obj->id;
-    }
-
-    if ($query->num_rows >= 0) {
-        echo json_encode(array('success' => "Estados de campanas.", 'data' => $id, 'obj' => $query->fetch_object()));
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo json_encode(array('success' => "Estados de campanas.", 'stats' => $row['stats']));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
