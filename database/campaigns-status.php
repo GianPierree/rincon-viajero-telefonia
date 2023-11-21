@@ -15,9 +15,14 @@ if ($conn->connect_error) {
     $sql = "SELECT c.stats FROM campaigns c WHERE id = $id";
     $log->logRequest($query, "Log SQL");
     $query = $conn->query($sql);
+    $id = '';
+
+    while ($query = $result->fetch_object()) {
+        $id = $obj->id;
+    }
 
     if ($query->num_rows >= 0) {
-       echo json_encode(array('success' => "Estados de campanas.", 'data' => $query));
+        echo json_encode(array('success' => "Estados de campanas.", 'data' => $id));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
