@@ -324,6 +324,9 @@ BX24.init(function () {
     cache: false,
     success: function(res) {
       console.log("result: ", res);
+      res.map(row => {
+        console.log("row: ", row)
+      })
       // return "Activo";
     }
   });
