@@ -436,7 +436,7 @@
 	<script>
 		$(document).ready(function() {
 			console.log('test 123');
-			consultarUsuario();
+			// consultarUsuario();
 		});
 	</script>
 	<!-- <script src="./js/list.js"></script> -->
