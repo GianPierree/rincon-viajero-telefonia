@@ -324,10 +324,10 @@ BX24.init(function () {
     cache: false,
     success: function(res) {
       console.log("result: ", JSON.parse(res));
-      // for (let index = 0; index < res.length; index++) {
-      //   console.log("row: ", res[index]);
-        
-      // }
+      let res_arr = JSON.parse(res)
+      for (let i = 0; i < res_arr.length; i++) {
+        console.log("row: ", res_arr[i]);
+      }
       // return "Activo";
     }
   });
