@@ -329,7 +329,7 @@ BX24.init(function () {
 
 
 
-  $.ajax(campanaListar).done(function (response) {
+  $.ajax(campanaListar).done(async function (response) {
     htmlTbodyCampana = "";
     objCampana = response.result;
     for (var key in objCampana) {
@@ -343,9 +343,13 @@ BX24.init(function () {
         return campanaColaId;
       });
 
+      var status = await campanaStatus(objCampana[key]["ID"]);
+      console.log("status: ", status)
+
       htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><label id='statusLabel'>---</label></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
       // htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><button onclick='campanaStatus(" + objCampana[key]["ID"] + ")'>test</button></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
     }
+
     document.getElementById("tbodyCampana").innerHTML = htmlTbodyCampana;
     console.log(objCampana);
   });
