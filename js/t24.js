@@ -327,9 +327,10 @@ BX24.init(function () {
       console.log("result: ", JSON.parse(res));
       let res_arr = JSON.parse(res)
       for (let i = 0; i < res_arr.length; i++) {
+        console.log("stas: ", res_arr[i].stats)
         let id = res_arr[i].id; 
         let campaignName = res_arr[i].campaignName; 
-        let stats = (res_arr[i].stats === 0) ? "Inactivo" : "Activo"; 
+        let stats = (res_arr[i].stats == 0) ? "Inactivo" : "Activo"; 
 
         htmlTbodyCampana += "<tr><th scope='row'>" + id + "</th><td>" + campaignName + "</td><td>" + stats + "</td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + id + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + id + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + id +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + id + ")'><img src='./images/trash.svg' /></button></td></tr>";
       }
