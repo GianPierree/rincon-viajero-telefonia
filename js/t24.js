@@ -318,41 +318,51 @@ BX24.init(function () {
 
   });
 
-  var campanaListar = {
-    "url": "https://demo.asesores-e.com/rest/1/nij52v7bj73pzb30/lists.element.get.json?IBLOCK_TYPE_ID=asesorest24&IBLOCK_ID=68",
-    "method": "GET",
-    "timeout": 0,
-    "headers": {
-      "Cookie": "BITRIX_SM_DEMO_SALE_UID=4"
-    },
-  };
-
-
-
-  $.ajax(campanaListar).done(async function (response) {
-    htmlTbodyCampana = "";
-    objCampana = response.result;
-    for (var key in objCampana) {
-
-      urlCampana = "https://demo.asesores-e.com/rest/1/nij52v7bj73pzb30/lists.element.get.json?IBLOCK_TYPE_ID=asesorest24&IBLOCK_ID=68&ELEMENT_ID=" + objCampana[key]["ID"];
-     
-      var campanaColaId = '';
-
-      $.each(objCampana[key]["PROPERTY_216"], function (index, value) {
-        campanaColaId = value;
-        return campanaColaId;
-      });
-
-      // var status = await campanaStatus(objCampana[key]["ID"]);
-      // console.log("status: ", status)
-
-      htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><label id='statusLabel'>---</label></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
-      // htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><button onclick='campanaStatus(" + objCampana[key]["ID"] + ")'>test</button></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
+  $.ajax({
+    type: "POST",
+    url: "./database/campaigns-show.php",
+    cache: false,
+    success: function(res) {
+      console.log("result: ", res);
+      // return "Activo";
     }
-
-    document.getElementById("tbodyCampana").innerHTML = htmlTbodyCampana;
-    console.log(objCampana);
   });
+
+  // var campanaListar = {
+  //   "url": "https://demo.asesores-e.com/rest/1/nij52v7bj73pzb30/lists.element.get.json?IBLOCK_TYPE_ID=asesorest24&IBLOCK_ID=68",
+  //   "method": "GET",
+  //   "timeout": 0,
+  //   "headers": {
+  //     "Cookie": "BITRIX_SM_DEMO_SALE_UID=4"
+  //   },
+  // };
+
+
+
+  // $.ajax(campanaListar).done(async function (response) {
+  //   htmlTbodyCampana = "";
+  //   objCampana = response.result;
+  //   for (var key in objCampana) {
+
+  //     urlCampana = "https://demo.asesores-e.com/rest/1/nij52v7bj73pzb30/lists.element.get.json?IBLOCK_TYPE_ID=asesorest24&IBLOCK_ID=68&ELEMENT_ID=" + objCampana[key]["ID"];
+     
+  //     var campanaColaId = '';
+
+  //     $.each(objCampana[key]["PROPERTY_216"], function (index, value) {
+  //       campanaColaId = value;
+  //       return campanaColaId;
+  //     });
+
+  //     // var status = await campanaStatus(objCampana[key]["ID"]);
+  //     // console.log("status: ", status)
+
+  //     htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><label id='statusLabel'>---</label></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
+  //     // htmlTbodyCampana += "<tr><th scope='row'>" + objCampana[key]["ID"] + "</th><td>" + objCampana[key]["NAME"] + "</td><td><button onclick='campanaStatus(" + objCampana[key]["ID"] + ")'>test</button></td><td><button class='btn btn-info' role='button' onclick='campanaPlay(" + objCampana[key]["ID"] + ", 1)'><img src='./images/play.svg' /></button>  <button class='btn btn-info' role='button' onclick='campanaStop(" + objCampana[key]["ID"] + ", 0)'><img src='./images/stop.svg' /></button> <button class='btn btn-info' role='button' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-whatever='" + objCampana[key]["ID"] +"'><img src='./images/edit.svg' /></button> <button class='btn btn-info' role='button' onclick='campanaTrash(" + objCampana[key]["ID"] + ")'><img src='./images/trash.svg' /></button></td></tr>";
+  //   }
+
+  //   document.getElementById("tbodyCampana").innerHTML = htmlTbodyCampana;
+  //   console.log(objCampana);
+  // });
 
   
 

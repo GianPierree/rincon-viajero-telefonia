@@ -29,10 +29,10 @@
 				data: {
 					arr
 				},
-				success: async function(res) {
+				success: function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
-					await campanaStatus(id);
+					//await campanaStatus(id);
 				}
 			});
 		}
@@ -51,10 +51,10 @@
 				data: {
 					arr
 				},
-				success: async function(res) {
+				success: function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
-					await campanaStatus(id);
+					// // await campanaStatus(id);
 
 				}
 			});
@@ -74,10 +74,10 @@
 				data: {
 					arr
 				},
-				success: async function(res) {
+				success: function(res) {
 					var jsonData = JSON.parse(res);
 					console.log(jsonData);
-					await campanaStatus(id);
+					// await campanaStatus(id);
 				}
 			});
 		}
