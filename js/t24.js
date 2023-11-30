@@ -323,7 +323,7 @@ BX24.init(function () {
     url: "./database/campaigns-show.php",
     cache: false,
     success: function(res) {
-      console.log("result: ", res);
+      console.log("result: ", JSON.parse(res));
       // for (let index = 0; index < res.length; index++) {
       //   console.log("row: ", res[index]);
         
