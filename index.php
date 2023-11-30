@@ -435,7 +435,7 @@
 	<script src="./js/formCampana.js"></script>
 	<script>
 		$(document).ready(function() {
-			console.log('test');
+			console.log('test 123');
 			consultarUsuario();
 		});
 	</script>
