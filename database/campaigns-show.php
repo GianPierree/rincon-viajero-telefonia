@@ -9,10 +9,13 @@ if ($conn->connect_error) {
 
     $sql = "SELECT c.id, c.campaignName, c.stats  FROM campaigns c";
     $result = $conn->query($sql);
+    $rows_array = array();
 
     if ($result->num_rows > 0) {
-        $rows = $result->fetch_assoc();
-        echo json_encode($rows);
+        while($rows = $result->fetch_assoc()){
+            $rows_array[] = $rows;
+        }
+        echo json_encode($rows_array);
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
