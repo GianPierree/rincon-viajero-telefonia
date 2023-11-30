@@ -15,7 +15,7 @@ if ($conn->connect_error) {
         while($rows = $result->fetch_assoc()){
             $rows_array[] = $rows;
         }
-        echo $rows_array;
+        echo json_encode($rows_array);
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
