@@ -323,7 +323,7 @@ BX24.init(function () {
     url: "./database/campaigns-show.php",
     cache: false,
     success: function(res) {
-      console.log("result: ", JSON.stringify(res));
+      console.log("result: ", res);
       // return "Activo";
     }
   });

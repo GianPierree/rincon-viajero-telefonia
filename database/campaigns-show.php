@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
     if ($result->num_rows > 0) {
         $rows = $result->fetch_assoc();
-        echo $rows;
+        echo json_encode($rows);
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
     }
