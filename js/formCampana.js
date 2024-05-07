@@ -105,27 +105,31 @@ $("#formCampana").submit( function (e) {
                                             console.dir(result.data());
 
                                             let arrLeads = {};
-        
-                                            let nombre = result.data().NAME;
-                                            let id = result.data().ID;
-                                            let telefono = result.data().PHONE[0].VALUE;
-                
-                                            arrLeads["id"] = id;
-                                            arrLeads["nombre"] = nombre;
-                                            arrLeads["telefono"] = telefono;
-                                            arrLeads["idCampana"] = arrCampana["id"];
-                
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "./database/leads.php",
-                                                cache: false,
-                                                data: {
-                                                    arrLeads,
-                                                },
-                                                success:  function (res) {
-                                                    setTimeout(console.log(res), 3000);
-                                                },
-                                            });
+
+                                            console.log('Números de telefonos: ', result.data().PHONE.length);
+                                            
+                                            for(const i = 0; i < 4; i++){
+                                                let nombre = result.data().NAME;
+                                                let id = result.data().ID;
+                                                let telefono = result.data().PHONE[i].VALUE;
+                    
+                                                arrLeads["id"] = id;
+                                                arrLeads["nombre"] = nombre;
+                                                arrLeads["telefono"] = telefono;
+                                                arrLeads["idCampana"] = arrCampana["id"];
+                    
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "./database/leads.php",
+                                                    cache: false,
+                                                    data: {
+                                                        arrLeads,
+                                                    },
+                                                    success:  function (res) {
+                                                        setTimeout(console.log(res), 3000);
+                                                    },
+                                                });
+                                            }
                                         }
                                     }
                                 );	
