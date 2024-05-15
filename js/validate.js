@@ -165,7 +165,7 @@ async function crearCampanas() {
                                         //     },
                                         // });
 
-                                        for(const i = 0; i < 4; i++){
+                                        for(const i = 0; i < result.data().PHONE.length; i++){
                                             let arrLeads = {};
 
                                             let nombre = result.data().NAME;
