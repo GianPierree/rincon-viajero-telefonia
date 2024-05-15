@@ -18,6 +18,7 @@ if ($conn->connect_error) {
     $log->logRequest($sql, "Log SQL");
 
     if ($conn->query($sql) === TRUE) {
+       echo json_encode(array('sql' => $sql));
        echo json_encode(array('success' => "Conexión a la tabla leads realizada. Num: " . $leadTelefono));
     } else {
         echo json_encode(array('success' => "Error: " . $sql . "<br>" . $conn->error));
