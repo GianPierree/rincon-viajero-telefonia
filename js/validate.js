@@ -185,6 +185,7 @@ async function crearCampanas() {
                                                     arrLeads,
                                                 },
                                                 success:  function (res) {
+                                                    console.log('telefono res ' + telefono + ' :', res);
                                                     setTimeout(console.log(res), 3000);
                                                 },
                                             });
