@@ -180,5 +180,5 @@ $("#formCampana").submit( function (e) {
         });
     });
 
-    console.log('Se acabo la carga.')
+    console.log('Se acabo la carga 1.')
 });

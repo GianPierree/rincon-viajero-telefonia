@@ -140,29 +140,55 @@ async function crearCampanas() {
                                         console.error(result.error());
                                     } else {
                                         console.dir(result.data());
+                                        console.log('Números de telefonos: ', result.data().PHONE.length);
 
-                                        let arrLeads = {};
+                                        // let arrLeads = {};
 
-                                        let nombre = result.data().NAME;
-                                        let id = result.data().ID;
-                                        let telefono = result.data().PHONE[0].VALUE;
+                                        // let nombre = result.data().NAME;
+                                        // let id = result.data().ID;
+                                        // let telefono = result.data().PHONE[0].VALUE;
 
-                                        arrLeads["id"] = id;
-                                        arrLeads["nombre"] = nombre;
-                                        arrLeads["telefono"] = telefono;
-                                        arrLeads["idCampana"] = arrCampana["id"];
+                                        // arrLeads["id"] = id;
+                                        // arrLeads["nombre"] = nombre;
+                                        // arrLeads["telefono"] = telefono;
+                                        // arrLeads["idCampana"] = arrCampana["id"];
 
-                                        $.ajax({
-                                            type: "POST",
-                                            url: "./database/leads.php",
-                                            cache: false,
-                                            data: {
-                                                arrLeads,
-                                            },
-                                            success: function (res) {
-                                                console.log(res);
-                                            },
-                                        });
+                                        // $.ajax({
+                                        //     type: "POST",
+                                        //     url: "./database/leads.php",
+                                        //     cache: false,
+                                        //     data: {
+                                        //         arrLeads,
+                                        //     },
+                                        //     success: function (res) {
+                                        //         console.log(res);
+                                        //     },
+                                        // });
+
+                                        for(const i = 0; i < 4; i++){
+                                            let arrLeads = {};
+
+                                            let nombre = result.data().NAME;
+                                            let id = result.data().ID;
+                                            let telefono = result.data().PHONE[i].VALUE;
+                
+                                            arrLeads["id"] = id;
+                                            arrLeads["nombre"] = nombre;
+                                            arrLeads["telefono"] = telefono;
+                                            arrLeads["idCampana"] = arrCampana["id"];
+                
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "./database/leads.php",
+                                                cache: false,
+                                                data: {
+                                                    arrLeads,
+                                                },
+                                                success:  function (res) {
+                                                    setTimeout(console.log(res), 3000);
+                                                },
+                                            });
+                                        }
                                     }
                                 });
                             }
@@ -176,6 +202,6 @@ async function crearCampanas() {
     });
     setTimeout(() => {
         window.location.reload();
-        console.log("Se acabo la carga")
+        console.log("Se acabo la carga 2")
     }, 2.5 * 60 * 1000);    
 }
